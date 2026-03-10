@@ -2,6 +2,7 @@ import { useMemo } from "react"
 import { useIntervals } from "./useIntervals"
 import { IntervalRow } from "./IntervalRow"
 import { AnalogClock } from "./AnalogClock"
+import { AnimatedBackground } from "./AnimatedBackground"
 import { calculateEndTime, formatDateTime } from "./utils"
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className="app">
+      <AnimatedBackground />
       <header className="app-header">
         <h1>🐊 Later Alligator</h1>
         <p className="tagline">How far away is "later"?</p>
