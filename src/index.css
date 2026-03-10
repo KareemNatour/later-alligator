@@ -14,6 +14,12 @@
   --danger-hover: #a93226;
   --shadow: 0 2px 8px rgba(0,0,0,0.08);
   --radius: 12px;
+  --bg-gradient-1: #e8f5e9;
+  --bg-gradient-2: #f7f6f3;
+  --bg-gradient-3: #e0f2f1;
+  --bg-gradient-4: #f1f8e9;
+  --bubble-light: #a0c4b0;
+  --bubble-mid: #81c784;
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 16px;
@@ -24,7 +30,17 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
+  background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), var(--bg-gradient-4));
+  background-size: 400% 400%;
+  animation: gradient-shift 20s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  25%  { background-position: 100% 0%; }
+  50%  { background-position: 100% 100%; }
+  75%  { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
 }
 
 #root {
@@ -33,6 +49,64 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding: 2rem 1rem 4rem;
+  position: relative;
+}
+
+/* ─── Animated Background ─────────────────────────── */
+
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.18;
+  animation: float linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.18;
+  }
+  90% {
+    opacity: 0.18;
+  }
+  100% {
+    transform: translateY(-20vh) rotate(360deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+.bubble-0  { width: 60px;  height: 60px;  left: 5%;   background: var(--accent);       animation-duration: 22s; animation-delay: 0s; }
+.bubble-1  { width: 40px;  height: 40px;  left: 15%;  background: var(--bubble-light); animation-duration: 18s; animation-delay: 2s; }
+.bubble-2  { width: 80px;  height: 80px;  left: 25%;  background: var(--accent);       animation-duration: 26s; animation-delay: 4s; }
+.bubble-3  { width: 30px;  height: 30px;  left: 35%;  background: var(--bubble-mid);   animation-duration: 16s; animation-delay: 1s; }
+.bubble-4  { width: 50px;  height: 50px;  left: 45%;  background: var(--bubble-light); animation-duration: 20s; animation-delay: 6s; }
+.bubble-5  { width: 70px;  height: 70px;  left: 55%;  background: var(--accent);       animation-duration: 24s; animation-delay: 3s; }
+.bubble-6  { width: 35px;  height: 35px;  left: 65%;  background: var(--bubble-mid);   animation-duration: 17s; animation-delay: 5s; }
+.bubble-7  { width: 55px;  height: 55px;  left: 75%;  background: var(--bubble-light); animation-duration: 21s; animation-delay: 7s; }
+.bubble-8  { width: 45px;  height: 45px;  left: 85%;  background: var(--accent);       animation-duration: 19s; animation-delay: 1.5s; }
+.bubble-9  { width: 65px;  height: 65px;  left: 10%;  background: var(--bubble-mid);   animation-duration: 25s; animation-delay: 8s; }
+.bubble-10 { width: 38px;  height: 38px;  left: 50%;  background: var(--bubble-light); animation-duration: 23s; animation-delay: 3.5s; }
+.bubble-11 { width: 48px;  height: 48px;  left: 90%;  background: var(--accent);       animation-duration: 15s; animation-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+  .bubble {
+    animation: none;
+    display: none;
+  }
 }
 
 /* ─── App Layout ─────────────────────────────────── */
@@ -40,6 +114,8 @@ body {
 .app {
   width: 100%;
   max-width: 540px;
+  position: relative;
+  z-index: 1;
 }
 
 .app-header {
