@@ -1,6 +1,7 @@
 import { useMemo } from "react"
 import { useIntervals } from "./useIntervals"
 import { IntervalRow } from "./IntervalRow"
+import { AnalogClock } from "./AnalogClock"
 import { calculateEndTime, formatDateTime } from "./utils"
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <section className="time-card end-card">
           <div className="time-label">End Time</div>
           <div className="time-value">{formatDateTime(endTime)}</div>
+          <AnalogClock date={endTime} />
         </section>
       </main>
     </div>

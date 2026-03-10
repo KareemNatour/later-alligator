@@ -217,3 +217,57 @@ body {
   color: var(--danger);
   border-color: var(--danger);
 }
+
+/* ─── Analog Clock ────────────────────────────────── */
+
+.analog-clock {
+  width: 140px;
+  height: 140px;
+  display: block;
+  margin: 0.75rem auto 0;
+}
+
+.clock-face {
+  fill: #f0faf4;
+}
+
+.clock-rim {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.tick-major {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.tick-minor {
+  stroke: #a0c4b0;
+  stroke-width: 1;
+  stroke-linecap: round;
+}
+
+.hand {
+  stroke-linecap: round;
+}
+
+.hand-hour {
+  stroke: var(--text);
+  stroke-width: 3.5;
+}
+
+.hand-minute {
+  stroke: var(--text);
+  stroke-width: 2.5;
+}
+
+.hand-second {
+  stroke: var(--danger);
+  stroke-width: 1.5;
+}
+
+.clock-center {
+  fill: var(--accent);
+}
