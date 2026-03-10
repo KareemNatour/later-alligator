@@ -1,0 +1,219 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --border: #e0ddd8;
+  --text: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --accent: #2d7a4f;
+  --accent-hover: #235f3d;
+  --danger: #c0392b;
+  --danger-hover: #a93226;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --radius: 12px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  color: var(--text);
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem 4rem;
+}
+
+/* ─── App Layout ─────────────────────────────────── */
+
+.app {
+  width: 100%;
+  max-width: 540px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ─── Time Cards ─────────────────────────────────── */
+
+.time-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.time-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.time-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.end-card {
+  border-color: var(--accent);
+  background: #f0faf4;
+}
+
+.end-card .time-value {
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+/* ─── Intervals Section ───────────────────────────── */
+
+.intervals-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.intervals-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.intervals-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.add-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.add-btn:hover {
+  background: var(--accent-hover);
+}
+
+.empty-hint {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+/* ─── Interval Row ────────────────────────────────── */
+
+.intervals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.interval-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.quantity-input {
+  width: 80px;
+  padding: 0.45rem 0.6rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  text-align: right;
+  transition: border-color 0.15s;
+}
+
+.quantity-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.unit-select {
+  flex: 1;
+  padding: 0.45rem 0.6rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.unit-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.remove-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  background: #fdecea;
+  color: var(--danger);
+  border-color: var(--danger);
+}
